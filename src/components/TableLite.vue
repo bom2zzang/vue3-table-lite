@@ -142,11 +142,13 @@
                         <div v-if="setting.isSlotMode && slots[col.field]">
                           <slot :name="col.field" :value="row"></slot>
                         </div>
-                        <span v-else>{{ row[col.field] }}</span>
+                        <span v-else>
+                          {{ row[col.field] }}</span>
                       </div>
                     </td>
                   </tr>
                 </template>
+
               </tbody>
               <tbody
                 v-else
@@ -181,8 +183,8 @@
                       </div>
                     </td>
                   </tr>
+                  <template  v-for="(row, i) in rows"  :key="row[setting.keyColumn] ? row[setting.keyColumn] : i">
                   <tr
-                    v-for="(row, i) in rows"
                     :ref="
                       (el) => {
                         if (!groupingRowsRefs[groupingIndex]) {
@@ -192,7 +194,7 @@
                       }
                     "
                     :name="'vtl-group-' + groupingIndex"
-                    :key="row[setting.keyColumn] ? row[setting.keyColumn] : i"
+
                     class="vtl-tbody-tr"
                     :class="
                       typeof rowClasses === 'function' ? rowClasses(row) : rowClasses
@@ -232,6 +234,16 @@
                       </div>
                     </td>
                   </tr>
+                  <tr v-if="isRowDetail" v-show="row.detailShow">
+                    <td
+                        :colspan="hasCheckbox ? columns.length + 1 : columns.length"
+                        class="vtl-tbody-td vtl-group-td"
+                    >
+                      <slot name="rowDetail" :value="row"></slot>
+                    </td>
+
+                  </tr>
+                  </template>
                 </template>
               </tbody>
             </template>
@@ -464,6 +476,10 @@ export default defineComponent({
     },
     // 插槽模式 (V-slot mode)
     isSlotMode: {
+      type: Boolean,
+      default: false,
+    },
+    isRowDetail:{
       type: Boolean,
       default: false,
     },

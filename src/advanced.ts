@@ -13,6 +13,8 @@ import FixedHeaderAndFirstColumn from './examples/FixedHeaderAndFirstColumn.vue'
 import ShowControls from './examples/ShowControls.vue'
 import Grouping from './examples/Grouping.vue'
 import Grouping2 from './examples/Grouping2.vue'
+import RowDetail from './examples/RowDetail.vue'
+
 
 createApp(CustomizeDisplayData).mount('#customize-display-table')
 createApp(Filter).mount('#filter-table')
@@ -28,3 +30,4 @@ createApp(FixedHeaderAndFirstColumn).mount('#fixed-header-and-first-column-table
 createApp(ShowControls).mount('#show-controls-table')
 createApp(Grouping).mount('#grouping-table')
 createApp(Grouping2).mount('#grouping2-table')
+createApp(RowDetail).mount('#row-detail-table')
