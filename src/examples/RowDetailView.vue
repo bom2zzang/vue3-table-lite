@@ -1,9 +1,9 @@
 <template>
   <div>
     <ul>
-      <li v-for="(d, i) in  data" :key="i">
-        {{d.item}}
-      </li>
+      {{
+        data
+      }}
     </ul>
   </div>
 </template>
@@ -11,16 +11,14 @@
 <script>
 import { defineComponent } from "vue";
 
-
 export default defineComponent({
   name: "row-detail-view",
   props: {
-    data:{
-      type: Object,
-      require: false
-    }
-
-  }
+    data: {
+      type: String,
+      require: false,
+    },
+  },
 });
 </script>
 

@@ -260,7 +260,7 @@
                         </div>
                       </td>
                     </tr>
-                    <tr v-if="isRowDetail" v-show="row.detailShow">
+                    <tr v-if="isRowDetail && row.detailShow">
                       <td
                         :colspan="
                           hasCheckbox ? columns.length + 1 : columns.length
